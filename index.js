@@ -112,6 +112,7 @@ $(function () {
         if (e.target.tagName == 'MAIN') { 
             //make a div to contain picture and options
             var newDiv = $("<div>");
+            newDiv.addClass("dynamic");
 
             //make the picture with its position
             var x = e.clientX;
