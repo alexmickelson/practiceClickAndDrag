@@ -27,40 +27,27 @@
 
 <body>
     <main class="container">
-        <div class="pane">
+        <div class="Vsplitter">
+            <div class="tocPane pane">
+            </div>
+            <div class="contentPane pane">
+            </div>
+            <div class="msg">
+                < Drag center bar>
+            </div>
         </div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
-        <div class="pane"></div>
+        <div class="Hsplitter">
+            <div class="tocPane HPane">
+            </div>
+            <div class="secondhPane HPane">
+            </div>
+            <div class="another">
+                < Drag center bar>
+            </div>
+        </div>
 
     </main>
 
 </body>
-<script>
-    $(function () {
-        var getCurrentBlockRight = function ($currentBlock) {
-            var $parent = $currentBlock.parent();
-            return $currentBlock.offset().left + $currentBlock.outerWidth() - $parent.offset().left - parseInt($parent.css("padding-left"), 10);
-        };
-        $(".pane").resizable(({
-            maxWidth: $(this).parent().width(),
-            minHeight: 32,
-            minWidth: 15,
-            start: function (event, ui) {
-                var $currentBlock = $(this);
-                var width = $(this).width();
-                $currentBlock.resizable("option", "maxWidth", width + $(this).parent().width() - getCurrentBlockRight($currentBlock));
-            }
-        }));
-
-    });
-</script>
 
 </html>
