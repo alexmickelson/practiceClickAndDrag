@@ -1,50 +1,8 @@
 
-main {
-    height: 100vh;
-}
-
-.optionsList {
-    background-color: beige;
-    display: block;
-    width: 20em;
-    left: 0;
-    padding: .5em;
-    border: .5em;
-    border-color: #8a7f7f;
-    border-style: solid;
-    border-radius: 3em;
-    margin-top: 1em;
-}
-
-.optionsList p {
-    width: 100%;
-    
-
-}
-
-    .optionsList p label {
-        display: block;
-        width: 100%;
-        float: left;
-    }
-
-.optionsList p input {
-    display: block;
-    width: 80%;
-    float: left;
-}
-
-
-.optionsList p span {
-    display: block;
-    float: left;
-}
-
-.hide {
-    display: none;
-}
-
-.moveable{
-    outline: .2em solid black;
-    outline-offset: -.2em;
-}
+        div.pane {
+            width: 20em;
+            height: 13em;
+            float: left;
+            border: 1em solid #666;
+            display: block;
+        }

@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
-     <!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./jqueryui/jquery-ui.min.css" />
-    <script src="./jqueryui/jquery-ui.min.js" ></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+    <script src="index.js"></script>
 
     <link rel="stylesheet" href="index.css" />
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="resize.js"></script>
     <title></title>
 </head>
+
 <body>
-    <main>
+    <main class="container">
+        <div class="pane">
+        </div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
+        <div class="pane"></div>
 
     </main>
+
 </body>
+<script>
+    $(function () {
+        var getCurrentBlockRight = function ($currentBlock) {
+            var $parent = $currentBlock.parent();
+            return $currentBlock.offset().left + $currentBlock.outerWidth() - $parent.offset().left - parseInt($parent.css("padding-left"), 10);
+        };
+        $(".pane").resizable(({
+            maxWidth: $(this).parent().width(),
+            minHeight: 32,
+            minWidth: 15,
+            start: function (event, ui) {
+                var $currentBlock = $(this);
+                var width = $(this).width();
+                $currentBlock.resizable("option", "maxWidth", width + $(this).parent().width() - getCurrentBlockRight($currentBlock));
+            }
+        }));
+
+    });
+</script>
 
 </html>

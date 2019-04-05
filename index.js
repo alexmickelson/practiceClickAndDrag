@@ -1,6 +1,6 @@
 var options = function () {
     //make the menu
-    var menu =  $(`<form class="optionsList hide ">
+    var menu = $(`<form class="optionsList hide ">
             <p>
                 <label>Opacity: </label>
                 <input type="range" min="0" max="100" value="100" class="sliders" />
@@ -58,8 +58,8 @@ var options = function () {
 //lets you change the picture
 //lets you drag the picture
 function edit(e) {
-    var f = $(this).children('FORM');
-    var i = $(this).children('IMG');
+    // var f = $(this).children('FORM');
+    // var i = $(this).children('IMG');
 
     //unhide the image atributes menu
     if (e.target.tagName == 'IMG') {
@@ -69,6 +69,13 @@ function edit(e) {
         $(this).draggable('disable');
     }
 };
+// $(function () {
+//     $(".pane").draggable();
+
+
+
+// });
+
 
 
 // document.onload = (function () {
@@ -84,7 +91,7 @@ function edit(e) {
 //         stairs.style.top = String(y) + 'px';
 //         this.appendChild(stairs);
 
-        
+
 //         var rec = stairs.getBoundingClientRect();
 //         var line = this.getContext("2d");
 //         line.beginPath();
@@ -102,82 +109,82 @@ function edit(e) {
 
 
 
-//function inputs new images where clicked
-$(function () {
-    // array of all images
+// //function inputs new images where clicked
+// $(function () {
+//     // array of all images
 
 
-    //makes a new <img> and puts it on page
-    $('main').click(function newImg(e) {
-        if (e.target.tagName == 'MAIN') { 
-            //make a div to contain picture and options
-            var newDiv = $("<div>");
-            newDiv.addClass("dynamic");
+//     //makes a new <img> and puts it on page
+//     $('main').click(function newImg(e) {
+//         if (e.target.tagName == 'MAIN') { 
+//             //make a div to contain picture and options
+//             var newDiv = $("<div>");
+//             newDiv.addClass("dynamic");
 
-            //make the picture with its position
-            var x = e.clientX;
-            var y = e.clientY;
-            var newImg = $('<img/>');
-            newImg.attr("src", "stairs.jpg");
-            newDiv.attr('width', "300px");
-            newDiv.css({
-                'position': "absolute",
-                'left': String(x) + 'px',
-                'top': String(y) + 'px'
-            });
-            newImg.css('width', '300px');
-
-
-            //put the picture and an editing menu in the div
-            newDiv.append(newImg);
-            options().appendTo(newDiv);
+//             //make the picture with its position
+//             var x = e.clientX;
+//             var y = e.clientY;
+//             var newImg = $('<img/>');
+//             newImg.attr("src", "stairs.jpg");
+//             newDiv.attr('width', "300px");
+//             newDiv.css({
+//                 'position': "absolute",
+//                 'left': String(x) + 'px',
+//                 'top': String(y) + 'px'
+//             });
+//             newImg.css('width', '300px');
 
 
-
-            $(this).append(newDiv);
-            //add an edditing menu when selected
-
-            newDiv.click(edit);
-            //handle dragging
-            newDiv.mousedown(function (e) {
-                if (e.target.tagName == 'IMG') {
-                    if ($(this).children('IMG').hasClass('moveable')) {
-                        debugger;
-                        $(this).draggable('enable');
-                    }
-                }
-            });
-
-
-            newDiv.mouseup(function (e) {
-                if (e.target.tagName == 'IMG') {
-                    if ($(this).children('IMG').hasClass('moveable')) {
-                        //$(this).children('IMG').toggleClass('moveable');
-                        $(this).draggable('disable');
-                    }
-                }
-            });
-
-
-        } else if (e.target.tagName == 'DIV') {
-
-        }
+//             //put the picture and an editing menu in the div
+//             newDiv.append(newImg);
+//             options().appendTo(newDiv);
 
 
 
+//             $(this).append(newDiv);
+//             //add an edditing menu when selected
+
+//             newDiv.click(edit);
+//             //handle dragging
+//             newDiv.mousedown(function (e) {
+//                 if (e.target.tagName == 'IMG') {
+//                     if ($(this).children('IMG').hasClass('moveable')) {
+//                         debugger;
+//                         $(this).draggable('enable');
+//                     }
+//                 }
+//             });
 
 
-        //var rec = stairs.getboundingclientrect();
-        //var line = this.getcontext("2d");
-        //line.beginpath();
-        //line.moveto(0, 0);
-        //line.lineto(rec.x, rec.y);
-        //line.stroke();
-    });
-
-    var a = document.querySelector('html');
-    a.addEventListener("click", newImg);
+//             newDiv.mouseup(function (e) {
+//                 if (e.target.tagName == 'IMG') {
+//                     if ($(this).children('IMG').hasClass('moveable')) {
+//                         //$(this).children('IMG').toggleClass('moveable');
+//                         $(this).draggable('disable');
+//                     }
+//                 }
+//             });
 
 
+//         } else if (e.target.tagName == 'DIV') {
 
-}) ();
+//         }
+
+
+
+
+
+//         //var rec = stairs.getboundingclientrect();
+//         //var line = this.getcontext("2d");
+//         //line.beginpath();
+//         //line.moveto(0, 0);
+//         //line.lineto(rec.x, rec.y);
+//         //line.stroke();
+//     });
+
+//     var a = document.querySelector('html');
+//     a.addEventListener("click", newImg);
+
+
+
+// }) ();

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js">
+    </script>
+    <link rel="stylesheet" type="text/css"
+        href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css">
+    <title>Page Splitter</title>
+    <style type="text/css">
+        body {
+            font-family: arial, helvetica, sans-serif;
+            font-weight: normal;
+            font-size: 13px;
+            color: #000;
+            text-align: left;
+            margin: 3px 0px;
+        }
+
+        .Vsplitter {
+            position: relative;
+            top: 0px;
+            width: 404px;
+            height: 150px;
+            margin: 30px 0px 50px 50px;
+        }
+
+        .Hsplitter {
+            position: absolute;
+            top: 200px;
+            width: 404px;
+            height: 150px;
+            margin: 30px 0px 50px 50px;
+        }
+
+        div.pane {
+            width: 200px;
+            height: 130px;
+            float: left;
+            border: 1px solid #666;
+        }
+        div.HPane {
+            width: 400px;
+            height: 60px;
+            bottom: 0;
+            border: 1px solid #666;
+        }
+
+        .tocPane {
+            background-color: #CCC;
+        }
+
+        .msg {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="Vsplitter">
+        <div class="tocPane pane">
+        </div>
+        <div class="contentPane pane">
+        </div>
+        <div class="msg">
+            < Drag center bar>
+        </div>
+    </div>
+    <div class="Hsplitter">
+        <div class="tocPane HPane">
+        </div>
+        <div class="secondhPane HPane">
+        </div>
+        <div class="another">
+            < Drag center bar>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $bWidth = 2;
+        $('.Vsplitter > div:first').resizable({
+            handles: 'e', minWidth: '2', maxWidth: '398',
+            resize: function () {
+                var remainingSpace = $(this).parent().width() - $(this).outerWidth();
+                $(this).next().css('width', (remainingSpace - $bWidth) + 'px');
+            }
+        });
+        $bHeight = 28;
+        $('.Hsplitter > div:first').resizable({
+            handles: 's', minHeight: '2', maxHeight: '398',
+            resize: function () {
+                var remainingSpace = $(this).parent().height() - $(this).outerHeight();
+                $(this).next().css('height', (remainingSpace - $bHeight) + 'px');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
