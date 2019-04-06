@@ -63,7 +63,6 @@ aside {
     bottom: 0px;
     height: 15px;
 }
-.ui-resizable-3 {
-    right: 0px;
-    width: 3em;
+.ui-resizable-e {
+    width: 15px;
 }
