@@ -7,45 +7,63 @@ body {
     margin: 3px 0px;
 }
 
-.Vsplitter {
-    position: relative;
-    top: 0px;
-    width: 404px;
-    height: 150px;
-    margin: 30px 0px 50px 50px;
+
+.nav-item {
+    width: 100%
+}
+.Selectable {
+    width: 100%;
+    height: 10em;
 }
 
-.Hsplitter {
-    position: absolute;
-    top: 200px;
-    width: 404px;
-    height: 150px;
-    margin: 30px 0px 50px 50px;
+div.HPane {
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+    border: 1px solid #666;
 }
-
-div.pane {
-    width: 200px;
-    height: 130px;
+div.VPane {
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
     float: left;
     border: 1px solid #666;
 }
-div.HPane {
-    width: 400px;
-    height: 60px;
-    bottom: 0;
-    border: 1px solid #666;
+.Selectable > .topPane {
+    background-color: #7a7a7a;
+}
+.Selectable > .bottomPane {
+    background-color: #ffffff;
 }
 
-.tocPane {
-    background-color: #CCC;
+
+.Selectable > .leftPane {
+    background-color: #7a7a7a;
+}
+.Selectable > .rightPane {
+    background-color: #ffffff;
 }
 
+aside {
+    height: 99vh;
+}
+
+.container {
+    overflow: hidden;
+    height: 95vh;
+    border: 4px solid  #5c626b;
+    margin: 1em;
+}
 .msg {
-    position: absolute;
+    display: inline;
+}
+
+
+.ui-resizable-s {
     bottom: 0px;
-    left: 0px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    margin: 0px;
+    height: 15px;
+}
+.ui-resizable-3 {
+    right: 0px;
+    width: 3em;
 }

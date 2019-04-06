@@ -3,13 +3,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8" />
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta charset="utf-8" /><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css"
@@ -26,27 +27,57 @@
 </head>
 
 <body>
-    <main class="container">
-        <div class="Vsplitter">
-            <div class="tocPane pane">
-            </div>
-            <div class="contentPane pane">
-            </div>
-            <div class="msg">
-                < Drag center bar>
-            </div>
-        </div>
-        <div class="Hsplitter">
-            <div class="tocPane HPane">
-            </div>
-            <div class="secondhPane HPane">
-            </div>
-            <div class="another">
-                < Drag center bar>
-            </div>
-        </div>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <aside class="col-12 col-md-2 p-0 bg-dark">
+                <nav class="navbar navbar-expand  bg-dark ">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                        <li class="nav-item ">
+                            <h3><span class="badge">Horizontal Panel</span></h3>
+                            <div class="Selectable" draggable="true" ondragstart="dragStartH(event)">
+                                <div class="topPane HPane">
+                                </div>
+                                <div class="bottomPane HPane">
+                                </div>
 
-    </main>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <h3><span class="badge">Vertical Panel</span></h3>
+                            <div class="Selectable" draggable="true" ondragstart="dragStartV(event)">
+                                <div class="leftPane VPane">
+                                </div>
+                                <div class="rightPane VPane">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="container col">
+                <!--horizontal panes hold vertical panes-->
+                <!-- <div class="topPane HPane" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                    <div class="leftPane VPane">
+                    </div>
+                    <div class="rigtPane VPane">
+                    </div>
+                </div>
+                <div class="bottomPane HPane">
+                    <div class="leftPane VPane">
+                    </div>
+                    <div class="rightPane VPane">
+                    </div>
+                </div> -->
+                    <div class="leftPane VPane" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+                    <div class="rigtPane VPane" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    </div>
+
+
+
+            </main>
+        </div>
+    </div>
 
 </body>
 
