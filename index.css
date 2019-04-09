@@ -66,3 +66,18 @@ aside {
 .ui-resizable-e {
     width: 15px;
 }
+
+.presentH {
+    height: 5em;
+    width: 10em;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.hFrame {
+    height: 30em;
+    width: 100%;
+    border: 1px solid #666;
+    
+}
+

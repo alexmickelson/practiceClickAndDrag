@@ -51,13 +51,17 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <h3><span class="badge">Horizontal Em Panel</span></h3>
+                            <div class="Selectable presentH" draggable="true" ondragstart="dragStartHFrame(event)">
+                                
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </aside>
-            <main class="container col" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-
-
+            <main class=" col" ondrop="dropStructure(event)" ondragover="allowDrop(event)">
+                <div id="frames"></div>
             </main>
         </div>
     </div>

@@ -24,6 +24,22 @@ function VResizable(JQObject) {
         }
     });
 }
+//makes an element resizable and ensures that it and its more right sibling share the parents height
+function HFrameResizable(JQObject) {
+    JQObject = $(JQObject);
+    //vertical panels
+    JQObject.resizable({
+        handles: 's', 
+        resize: function (event, ui) {
+            var emHeight = $(this).height() / parseFloat($("body").css("font-size"));
+
+            //work in units of percent for responsiveness if parents get resized
+            $(this).css('height', emHeight + 'em');
+
+
+        }
+    });
+}
 
 //makes an element resizable and ensures that it and its lower sibling share the parents height
 function HResizable(JQObject) {
@@ -49,16 +65,16 @@ function HResizable(JQObject) {
 
 
 $(function () {
-
-
     //vertical panels
     $('.leftPane').each(function () {
         VResizable(this);
     });
     //horizontal panels
-    $bHeight = 0;
     $('.topPane').each(function () {
         HResizable($(this));
+    });
+    $('.hFrame').each(function (){
+        HFrameResizable($(this));
     });
 });
 
@@ -73,6 +89,8 @@ function drop(event) {
                 <div class="bottomPane HPane" ondrop="drop(event)" ondragover="allowDrop(event)">
                 </div>`);
         HResizable(event.target.firstElementChild);
+        //unbind drop so that when things are dropped in the child element, drop() doesnt get called twice
+        $(event.target).prop("ondrop", null).off("drop");
 
     } else if (type == "vertical") {
         event.target.insertAdjacentHTML('afterbegin',
@@ -81,10 +99,25 @@ function drop(event) {
                 <div class="rigtPane VPane" ondrop="drop(event)" ondragover="allowDrop(event)">
                 </div>`);
         VResizable(event.target.firstElementChild);
+        //unbind drop so that when things are dropped in the child element, drop() doesnt get called twice
+        $(event.target).prop("ondrop", null).off("drop");
     }
 
-    //unbind drop so that when things are dropped in the child element, drop() doesnt get called twice
-    $(event.target).prop("ondrop", null).off("drop");
+}
+
+function dropStructure(event) {
+    //get horizontal or vertical
+    var type = event.dataTransfer.getData("text");
+    if (type == "hFrame") {
+        var newDiv = jQuery('<div/>',{
+            class: 'hFrame',
+            ondrop: 'drop(event)',
+            ondragover: 'allowDrop(event)'
+        });
+        $('#frames').append(newDiv);
+        HFrameResizable(newDiv);
+    }
+
 }
 
 
@@ -97,4 +130,7 @@ function dragStartH(event) {
 }
 function dragStartV(event) {
     event.dataTransfer.setData("Text", "vertical");
+}
+function dragStartHFrame(event) {
+    event.dataTransfer.setData("Text", "hFrame");
 }
